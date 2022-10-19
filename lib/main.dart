@@ -13,28 +13,31 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('test'),
         ),
-        body: const SizedBox(
-          child: Text(
-            '텍스트',
-            style: TextStyle(
-              backgroundColor: Colors.blue,
-              color: Colors.yellow,
-              fontWeight: FontWeight.w800,
-              fontSize: 50,
-            ),
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: SizedBox(
-            height: 80,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(Icons.phone),
-                Icon(Icons.message),
-                Icon(Icons.contact_page),
-              ],
-            ),
+        body: Container(
+          color: Colors.amber[100],
+          height: 100,
+          padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+          child: Row(
+            children: [
+              Image.asset('img1.png', width: 150),
+              Container(
+                width: 100,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('asdf'),
+                    Text('asdfsss'),
+                    Text('asdf'),
+                    Text('asdfs'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [Icon(Icons.favorite), Text('123')],
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
