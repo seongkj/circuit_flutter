@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
 class MyTest extends StatelessWidget {
   const MyTest({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -91,16 +91,70 @@ class MyTest extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(Icons.search, size: 30),
-                            Icon(Icons.forum, size: 30),
-                            Icon(Icons.add_comment, size: 30),
+                            Container(
+                              padding: EdgeInsets.only(right: 20),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: Icon(Icons.search, size: 30),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 20),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: Icon(Icons.forum, size: 30),
+                              ),
+                            ),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Icon(Icons.add_comment, size: 30),
+                            ),
                           ],
                         ),
                       ],
                     ),
                   ),
                   Container(
-                    child: Text('목록'),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 65,
+                              height: 65,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                  ),
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Image(
+                                image: AssetImage('img1.png'),
+                              ),
+                            ),
+                            Container(
+                              width: 200,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '이름',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 15),
+                                  ),
+                                  Text('채팅내용~~~'),
+                                  Text('채팅'),
+                                ],
+                              ),
+                            ),
+                            Text('시간'),
+                          ],
+                        ),
+                        Text('채팅 목록'),
+                        Text('채팅 목록'),
+                        Text('채팅 목록'),
+                        Text('채팅 목록'),
+                      ],
+                    ),
                   ),
                 ],
               ),
