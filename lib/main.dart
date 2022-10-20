@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
 class MyTest extends StatelessWidget {
   const MyTest({super.key});
-
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,34 +74,36 @@ class MyTest extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: 400,
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '채팅',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700),
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.search, size: 30),
-                          Icon(Icons.forum, size: 30),
-                          Icon(Icons.add_comment, size: 30),
-                        ],
-                      ),
-                    ],
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '채팅',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.search, size: 30),
+                            Icon(Icons.forum, size: 30),
+                            Icon(Icons.add_comment, size: 30),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  child: Text('목록'),
-                ),
-              ],
+                  Container(
+                    child: Text('목록'),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
