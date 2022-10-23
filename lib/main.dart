@@ -10,70 +10,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MyTest(),
+        body: ChatPage(),
         bottomNavigationBar: MyBanner(),
       ),
     );
   }
 }
 
-class MyTest extends StatelessWidget {
-  const MyTest({super.key});
+class ChatPage extends StatelessWidget {
+  const ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
         children: [
-          Container(
-            // 네비 바
-            color: Colors.black12,
-            height: double.infinity,
-            width: 80,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: Icon(Icons.person, size: 35),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: Icon(Icons.chat_bubble_outline, size: 35),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: Icon(Icons.more_horiz, size: 35),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(bottom: 30),
-                      child: Icon(Icons.notifications_none, size: 35),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(bottom: 30),
-                      child: Icon(Icons.settings, size: 35),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          NavBar(),
           Expanded(
             child: Column(
               children: [
@@ -117,10 +69,6 @@ class MyTest extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        ChatList(),
-                        ChatList(),
-                        ChatList(),
-                        ChatList(),
                         ChatList(),
                         ChatList(),
                         ChatList(),
@@ -243,5 +191,77 @@ class MyBanner extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+// 네비 바
+class NavBar extends StatelessWidget {
+  const NavBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black12,
+      height: double.infinity,
+      width: 80,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                child: ElevatedButton(
+                  onPressed: null,
+                  style: ButtonStyle(
+                    mouseCursor: MaterialStateProperty.all<MouseCursor>(
+                        SystemMouseCursors.click),
+                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                  ),
+                  child: Icon(Icons.person, size: 35),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Icon(Icons.chat_bubble_outline, size: 35),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Icon(Icons.more_horiz, size: 35),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(bottom: 30),
+                child: Icon(Icons.notifications_none, size: 35),
+              ),
+              Container(
+                padding: EdgeInsets.only(bottom: 30),
+                child: Icon(Icons.settings, size: 35),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//  친구 목록
+class FriendPage extends StatelessWidget {
+  const FriendPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
