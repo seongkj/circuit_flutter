@@ -4,11 +4,13 @@ void main() {
   runApp(const MyApp());
 }
 
+//  채팅 목록 페이지
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: '카카오톡 flutter',
       home: Scaffold(
         body: ChatPage(),
         bottomNavigationBar: MyBanner(),
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// 채팅목록페이지
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
@@ -69,11 +72,11 @@ class ChatPage extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        ChatList(),
-                        ChatList(),
-                        ChatList(),
-                        ChatList(),
-                        ChatList(),
+                        ChatRoomList(),
+                        ChatRoomList(),
+                        ChatRoomList(),
+                        ChatRoomList(),
+                        ChatRoomList(),
                       ],
                     ),
                   ),
@@ -87,9 +90,9 @@ class ChatPage extends StatelessWidget {
   }
 }
 
-// 채팅목록
-class ChatList extends StatelessWidget {
-  const ChatList({super.key});
+// 채팅방 리스트
+class ChatRoomList extends StatelessWidget {
+  const ChatRoomList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -211,9 +214,15 @@ class NavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
+                // 채팅 목록 버튼
                 padding: EdgeInsets.only(top: 30),
                 child: ElevatedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FriendPage()),
+                    );
+                  },
                   style: ButtonStyle(
                     mouseCursor: MaterialStateProperty.all<MouseCursor>(
                         SystemMouseCursors.click),
@@ -223,9 +232,20 @@ class NavBar extends StatelessWidget {
                 ),
               ),
               Container(
+                // 친구 목록 버튼
                 padding: EdgeInsets.only(top: 30),
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyApp()),
+                    );
+                  },
+                  style: ButtonStyle(
+                    mouseCursor: MaterialStateProperty.all<MouseCursor>(
+                        SystemMouseCursors.click),
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
                   child: Icon(Icons.chat_bubble_outline, size: 35),
                 ),
               ),
@@ -256,12 +276,140 @@ class NavBar extends StatelessWidget {
   }
 }
 
-//  친구 목록
+//  친구 목록 페이지
 class FriendPage extends StatelessWidget {
   const FriendPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      title: '카카오톡 친구 목록',
+      home: Scaffold(
+        body: FriendList(),
+        bottomNavigationBar: MyBanner(),
+      ),
+    );
+  }
+}
+
+// 친구 리스트
+class FriendList extends StatelessWidget {
+  const FriendList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          NavBar(),
+          Expanded(
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 25, bottom: 25),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '친구',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w700),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(right: 20),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Icon(Icons.search, size: 30),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 20),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Icon(Icons.forum, size: 30),
+                            ),
+                          ),
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Icon(Icons.add_comment, size: 30),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        FriendLists(),
+                        FriendLists(),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//친구 리스트 형식
+class FriendLists extends StatelessWidget {
+  const FriendLists({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.black.withOpacity(0.1)),
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 65,
+                height: 65,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Image(
+                  image: AssetImage('img1.png'),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.only(left: 15, right: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '이름',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w800, fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+    ;
   }
 }
