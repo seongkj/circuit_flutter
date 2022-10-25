@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
+  static const String route = '/secondpage';
 
   @override
   Widget build(BuildContext context) {
