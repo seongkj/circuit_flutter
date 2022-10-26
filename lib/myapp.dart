@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'chatpage.dart';
+import 'chatroom.dart';
 import 'friendpage.dart';
 import 'mybanner.dart';
 import 'secondpage.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MyApp.route: (context) => MyApp(),
         FriendPage.route: (context) => FriendPage(),
+        ChatRoom.route: (context) => ChatRoom(),
         SecondPage.route: (context) => SecondPage(),
       },
       title: '카카오톡 flutter',

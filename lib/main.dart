@@ -5,7 +5,7 @@ import 'myapp.dart';
 
 void main() {
   setPathUrlStrategy();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 //  채팅 목록 페이지

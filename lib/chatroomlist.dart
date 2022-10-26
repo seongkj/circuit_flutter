@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ChatRoomList extends StatelessWidget {
   const ChatRoomList({super.key});
-
+  static const String a = 'asdf';
   @override
   Widget build(BuildContext context) {
     return Container(

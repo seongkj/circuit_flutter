@@ -21,7 +21,8 @@ class NavBar extends StatelessWidget {
               Container(
                 // 친구 목록 버튼
                 padding: EdgeInsets.only(top: 30),
-                child: ElevatedButton(
+                // child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -31,7 +32,9 @@ class NavBar extends StatelessWidget {
                   style: ButtonStyle(
                     mouseCursor: MaterialStateProperty.all<MouseCursor>(
                         SystemMouseCursors.click),
-                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                    // backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                    // shadowColor: MaterialStateProperty.all(Colors.yellow),
+                    foregroundColor: MaterialStateProperty.all((Colors.black)),
                   ),
                   child: Icon(Icons.person, size: 35),
                 ),
@@ -39,7 +42,7 @@ class NavBar extends StatelessWidget {
               Container(
                 // 채팅 목록 버튼
                 padding: EdgeInsets.only(top: 30),
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -49,7 +52,7 @@ class NavBar extends StatelessWidget {
                   style: ButtonStyle(
                     mouseCursor: MaterialStateProperty.all<MouseCursor>(
                         SystemMouseCursors.click),
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor: MaterialStateProperty.all((Colors.black)),
                   ),
                   child: Icon(Icons.chat_bubble_outline, size: 35),
                 ),
