@@ -32,8 +32,6 @@ class NavBar extends StatelessWidget {
                   style: ButtonStyle(
                     mouseCursor: MaterialStateProperty.all<MouseCursor>(
                         SystemMouseCursors.click),
-                    // backgroundColor: MaterialStateProperty.all(Colors.yellow),
-                    // shadowColor: MaterialStateProperty.all(Colors.yellow),
                     foregroundColor: MaterialStateProperty.all((Colors.black)),
                   ),
                   child: Icon(Icons.person, size: 35),

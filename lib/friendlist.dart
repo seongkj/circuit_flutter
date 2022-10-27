@@ -54,14 +54,7 @@ class FriendList extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
-                      FriendLists(),
+                      for (var i = 0; i < 8; i++) ...[FriendLists()],
                     ],
                   ),
                 ),
