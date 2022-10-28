@@ -43,31 +43,40 @@ class ChatRoom extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                                hoverColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onPressed: () {},
-                                icon: Icon(Icons.sentiment_very_satisfied)),
+                              hoverColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onPressed: () {},
+                              icon: Icon(Icons.sentiment_very_satisfied),
+                            ),
                             IconButton(
-                                hoverColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onPressed: () {},
-                                icon: Icon(Icons.content_paste)),
+                              hoverColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onPressed: () {},
+                              icon: Icon(Icons.content_paste),
+                            ),
                             IconButton(
-                                hoverColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onPressed: () {},
-                                icon: Icon(Icons.attach_file)),
+                              hoverColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onPressed: () {},
+                              icon: Icon(Icons.attach_file),
+                            ),
                           ],
                         ),
                         Container(
                           child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                                // backgroundColor: Colors.yellow,
+                                ),
                             onPressed: () {
                               print('전송');
                             },
-                            child: Text('전송'),
+                            child: Text(
+                              '전송',
+                              style: TextStyle(color: Colors.pink),
+                            ),
                           ),
                         )
                       ],
